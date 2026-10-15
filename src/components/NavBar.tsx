@@ -13,7 +13,7 @@ const NavBar = () => {
             <Link to={"/"}><span className='text-md text-white'>About</span></Link>
         </div>
         <img src="/src/assets/collab-logo.jpeg" alt="Logo" className="h-13 mr-8 hidden lg:block" />
-        <Link to={"/"} className="btn border-white-100 bg-transparent mr-8 rounded-full text-white hover:bg-white hover:text-black hover:border-white-100">Sign In</Link>
+        <Link to={"/signup"} className="btn border-white-100 bg-transparent mr-8 rounded-full text-white hover:bg-white hover:text-black hover:border-white-100 hidden lg:inline-flex">Sign Up</Link>
         <Menu className='lg:hidden ml-auto mr-8'/>
     </header>
   )
