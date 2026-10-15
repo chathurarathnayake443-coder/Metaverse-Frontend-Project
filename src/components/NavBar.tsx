@@ -4,7 +4,7 @@ import {Menu} from "lucide-react"
 
 const NavBar = () => {
   return (
-    <header className="bg-gray-950 w-screen h-18 text-white flex flex-row items-center">
+    <header className="bg-gray-950 w-full h-18 text-white flex flex-row items-center">
         <img src="/src/assets/metaverse-logo-fullname.png" alt="Logo" className="h-full" />
         <div className="flex flex-row gap-10 m-auto font-outfit items-center hidden lg:flex">
             <Link to={"/"}><span className='text-md text-white'>Home</span></Link>

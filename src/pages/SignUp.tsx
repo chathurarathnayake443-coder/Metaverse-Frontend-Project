@@ -1,6 +1,8 @@
 import { useState } from "react"
 import NavBar from "../components/NavBar.tsx"
 import { Eye, EyeOff } from "lucide-react"
+import {Link} from "react-router"
+import Footer from "../components/Footer.tsx"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -123,11 +125,10 @@ const Register = () => {
           <hr className="my-6" />
           <div className="font-outfit text-center text-gray-600">Already have an Account?</div>
 
-          <button type="button" className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800">
-            Log In
-          </button>
+          <Link to={"/login"} className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800">Login</Link>
         </form>
       </main>
+      <Footer/>
     </div>
   )
 }

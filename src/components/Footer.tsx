@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 
 const Footer = () => {
   return (
-    <footer className="bg-black w-screen h-20 text-white items-center flex flex-row font-outfit justify-around">
+    <footer className="bg-black w-full h-20 text-white items-center flex flex-row font-outfit justify-around">
       <span className='font-semibold'>Metaverse</span>
       <span className='text-xs'>© CSR.Inc@{new Date().getFullYear()}</span>
        <span className="flex flex-row gap-10 font-outfit items-center hidden lg:flex">
