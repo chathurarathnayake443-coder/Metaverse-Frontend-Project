@@ -14,7 +14,11 @@ const Login = () => {
     <div className="flex min-h-screen flex-col">
       <NavBar />
 
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-8">
+      <div className="flex justify-center">
+        <img src="/src/assets/black-logo.png" alt="Logo" className=" w-32 md:w-40" />
+      </div>
+
+      <main className="flex flex-1 flex-col items-center justify-center px-4 py-6">
         <h1 className="mb-6 text-center font-outfit text-xl font-semibold text-black md:text-2xl">
           Log In to Your Account
         </h1>

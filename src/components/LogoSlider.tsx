@@ -18,7 +18,7 @@ const LogoSlider = () => {
   const items = [...half, ...half] 
 
   return (
-    <section className="w-full bg-white py-10">
+    <section className="w-full bg-white py-8">
       <p className="mb-6 text-center text-sm text-black font-semibold">Trusted by teams at</p>
 
       <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
@@ -28,7 +28,7 @@ const LogoSlider = () => {
               key={i}
               aria-label={name}
               style={{ color }}
-              className="mx-8 h-8 w-8 brightness-75 md:mx-12 md:h-20 md:w-20"
+              className="mx-8 h-6 w-6 brightness-75 md:mx-12 md:h-20 md:w-20"
             />
           ))}
         </div>
