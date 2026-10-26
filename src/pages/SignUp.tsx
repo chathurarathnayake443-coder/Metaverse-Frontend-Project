@@ -23,6 +23,7 @@ const Register = () => {
   const[jobRole, setJobRole] = useState("")
   const[password, setPassword] = useState("")
   const[confirmPassword, setConfirmPassword] = useState("")
+  const matching = password === confirmPassword;
 
   const handleRegister = () => {
     if(!name || !email || !address || !contact || !password || !confirmPassword){
@@ -183,6 +184,11 @@ const Register = () => {
           {show ? <EyeOff size={20} /> : <Eye size={20} />}
         </button>
       </div>
+      {confirmPassword && (
+          <p className={`mt-1 text-sm ${matching ? "text-green-600" : "text-red-600"}`}>
+            {matching ? "Passwords are matching" : "Passwords are not matching"}
+          </p>
+)}
     </div>
 
           <button type="button" className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800" onClick={handleRegister}>
