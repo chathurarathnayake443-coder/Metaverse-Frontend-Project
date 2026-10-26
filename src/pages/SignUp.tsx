@@ -3,6 +3,8 @@ import NavBar from "../components/NavBar.tsx"
 import { Eye, EyeOff } from "lucide-react"
 import {Link} from "react-router"
 import Footer from "../components/Footer.tsx"
+import { useNavigate } from "react-router"
+import toast from "react-hot-toast"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -11,6 +13,30 @@ const labelClass = "mb-2 font-outfit text-sm font-semibold md:text-base"
 const Register = () => {
   const [employed, setEmployed] = useState(false)
   const [show, setShow] = useState(false)
+
+  const navigate = useNavigate()
+  const[name, setName] = useState("")
+  const[email, setEmail] = useState("")
+  const[address, setAddress] = useState("")
+  const[contact, setContact] = useState("")
+  const[company, setCompany] = useState("")
+  const[jobRole, setJobRole] = useState("")
+  const[password, setPassword] = useState("")
+  const[confirmPassword, setConfirmPassword] = useState("")
+
+  const handleRegister = () => {
+    if(!name || !email || !address || !contact || !password || !confirmPassword){
+        toast.error("Please Enter All Fields to Register !")
+    }
+
+    if(employed && (!company || !jobRole)){
+      toast.error("Please Fill Company and Job Role")
+    }
+
+    if(password !== confirmPassword){
+      toast.error("Passwords doesn't Match !")
+    }
+  }
 
   return (
     <div className="min-h-screen">
@@ -28,22 +54,46 @@ const Register = () => {
         <form className="relative w-full max-w-lg space-y-4 rounded-3xl border-2 border-black p-6 sm:p-10">
           <div className="flex flex-col">
             <label htmlFor="fullName" className={labelClass}>Full Name</label>
-            <input id="fullName" type="text" placeholder="Chathura Rathnayake" className={inputClass} />
+            <input 
+              id="fullName" 
+              type="text" 
+              placeholder="Chathura Rathnayake" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              className={inputClass} />
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="email" className={labelClass}>Email</label>
-            <input id="email" type="email" placeholder="chathura@example.com" className={inputClass} />
+            <input 
+              id="email" 
+              type="email" 
+              placeholder="chathura@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              className={inputClass} />
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="address" className={labelClass}>Address</label>
-            <input id="address" type="text" placeholder="Colombo, Sri Lanka" className={inputClass} />
+            <input 
+              id="address" 
+              type="text" 
+              placeholder="Colombo, Sri Lanka" 
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className={inputClass} />
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="contact" className={labelClass}>Contact</label>
-            <input id="contact" type="tel" placeholder="+94 77 1234567" className={inputClass} />
+            <input 
+              id="contact" 
+              type="tel" 
+              placeholder="+94 77 1234567" 
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              className={inputClass} />
           </div>
 
           <label htmlFor="employed" className="flex cursor-pointer items-center gap-3 font-outfit text-sm md:text-base">
@@ -61,12 +111,24 @@ const Register = () => {
             <>
               <div className="flex flex-col">
                 <label htmlFor="company" className={labelClass}>Current Company</label>
-                <input id="company" type="text" placeholder="Company name" className={inputClass} />
+                <input 
+                  id="company" 
+                  type="text" 
+                  placeholder="Company name" 
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  className={inputClass} />
               </div>
 
               <div className="flex flex-col">
                 <label htmlFor="jobRole" className={labelClass}>Current Job Role</label>
-                <input id="jobRole" type="text" placeholder="Software Engineer" className={inputClass} />
+                <input 
+                  id="jobRole" 
+                  type="text" 
+                  placeholder="Software Engineer" 
+                  value={jobRole}
+                  onChange={(e) => setJobRole(e.target.value)}
+                  className={inputClass} />
               </div>
             </>
           )}
@@ -81,6 +143,8 @@ const Register = () => {
           id="password"
           type={show ? "text" : "password"}
           placeholder="••••••••••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className={inputClass}
         />
 
@@ -105,6 +169,8 @@ const Register = () => {
           id="password"
           type={show ? "text" : "password"}
           placeholder="••••••••••••••••"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           className={inputClass}
         />
 
@@ -119,7 +185,7 @@ const Register = () => {
       </div>
     </div>
 
-          <button type="button" className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800">
+          <button type="button" className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800" onClick={handleRegister}>
             Create Account
           </button>
           <hr className="my-6" />

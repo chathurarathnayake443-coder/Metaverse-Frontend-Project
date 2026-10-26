@@ -18,7 +18,7 @@ const LogoSlider = () => {
   const items = [...half, ...half] 
 
   return (
-    <section className="w-full bg-white py-8">
+    <section className="w-full bg-violet-500/40 py-8">
       <p className="mb-6 text-center text-sm text-black font-semibold">Trusted by teams at</p>
 
       <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">

@@ -18,8 +18,14 @@ const HomePage = () => {
     bg-[size:100px_100px] 
     [mask-image:linear-gradient(to_bottom,black_30%,transparent_100%)]"
 />
+
+ <div
+    aria-hidden="true"
+    className="pointer-events-none absolute inset-0 z-0 bg-linear-to-t from-violet-500/40 via-violet-300/15 to-transparent"
+  />
+
         <div className="relative z-10">
-            <h1 className='text-5xl md:text-7xl lg:text-8xl font-outfit font-bold mt-20 ml-10 leading-tight drop-shadow-2xl/30'>Move with the Latest <br /><span className="text-violet-600 drop-shadow-2xl/10">Tech Stack</span><span className="inline-flex items-center gap-2 whitespace-nowrap text-3xl font-outfit text-gray-400 ml-3">
+            <h1 className='text-5xl md:text-7xl lg:text-8xl font-outfit font-bold mt-20 ml-10 leading-tight drop-shadow-2xl/30'>Move with the Latest <br /><span className="text-violet-600 drop-shadow-2xl/10">Tech Stack⚡</span><span className="inline-flex items-center gap-1 whitespace-nowrap text-3xl font-outfit text-gray-400 ml-3">
         for a Super Fast Hiring with <FaGithub className="text-black text-9xl absolute top-65 right-155 hidden lg:block"/>
       </span></h1>
       <p className='text-green-900 ml-10 mt-10 font-mono translate-y-8' >MetaVerse is a Hiring Platform which associated with GitHub.<br/> A Platform for Super Faster Employee Hiring for World Renowned  <br/>Tech Companies, and a Universe to chat with the Industry Experts...</p>
