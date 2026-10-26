@@ -5,6 +5,7 @@ import {Link} from "react-router"
 import Footer from "../components/Footer.tsx"
 import { useNavigate } from "react-router"
 import toast from "react-hot-toast"
+import { TECH_COMPANIES } from "../data/companies.ts"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -114,11 +115,17 @@ const Register = () => {
                 <label htmlFor="company" className={labelClass}>Current Company</label>
                 <input 
                   id="company" 
+                  list="company-list"
                   type="text" 
                   placeholder="Company name" 
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   className={inputClass} />
+                  <datalist id="company-list">
+                    {TECH_COMPANIES.map((c) => (
+                      <option key={c} value={c}/>
+                    ))}
+                  </datalist>
               </div>
 
               <div className="flex flex-col">
