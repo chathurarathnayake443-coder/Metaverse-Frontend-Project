@@ -29,17 +29,50 @@ const Register = () => {
   const[confirmPassword, setConfirmPassword] = useState("")
   const matching = password === confirmPassword;
 
+  const isValidEmail = (email: string): boolean => {
+    const value = email.trim()
+
+    return (
+      value.includes("@") &&
+      value.includes(".") &&
+      !value.includes(" ") &&
+      !value.startsWith("@") &&
+      !value.endsWith(".") &&
+      value.indexOf("@") === value.lastIndexOf("@") &&  
+      value.indexOf(".", value.indexOf("@")) > value.indexOf("@") + 1 
+    )
+}
+
+  const isValidUrl = (url: string): boolean => {
+    const value = url.trim()
+
+    return (
+      (value.startsWith("http://") || value.startsWith("https://")) &&
+      value.includes(".") &&
+      !value.includes(" ") &&
+      value.length > value.indexOf("://") + 3 + 3  
+    )
+}
+
   const handleRegister = async () => {
     if(!name || !email || !address || !contact || !password || !confirmPassword){
-        toast.error("Please Enter All Fields to Register !")
+        return toast.error("Please Enter All Fields to Register !")
     }
 
     if(employed && (!company || !jobRole)){
-      toast.error("Please Fill Company and Job Role")
+      return toast.error("Please Fill Company and Job Role")
     }
 
     if(password !== confirmPassword){
-      toast.error("Passwords doesn't Match !")
+      return toast.error("Passwords doesn't Match !")
+    }
+
+    if(!isValidEmail(email)){
+      return toast.error("Please Enter a Valid Email Address")
+    }
+
+    if(!isValidUrl(linkedInUrl) || !isValidUrl(githubUrl)){
+      return toast.error("Please Enter a Valid URL")
     }
 
     try{
