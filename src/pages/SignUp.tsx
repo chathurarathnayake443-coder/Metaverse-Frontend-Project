@@ -6,6 +6,7 @@ import Footer from "../components/Footer.tsx"
 import { useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import { TECH_COMPANIES } from "../data/companies.ts"
+import { register } from "../service/auth.ts"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -20,6 +21,8 @@ const Register = () => {
   const[email, setEmail] = useState("")
   const[address, setAddress] = useState("")
   const[contact, setContact] = useState("")
+  const[githubUrl, setGithubUrl] = useState("")
+  const[linkedInUrl, setLinkedInUrl] = useState("")
   const[company, setCompany] = useState("")
   const[jobRole, setJobRole] = useState("")
   const[password, setPassword] = useState("")
@@ -40,7 +43,7 @@ const Register = () => {
     }
 
     try{
-      
+      // await register(name, email, address, contact, password, githu)
     }
     catch(error){
 
@@ -103,6 +106,28 @@ const Register = () => {
               placeholder="+94 77 1234567" 
               value={contact}
               onChange={(e) => setContact(e.target.value)}
+              className={inputClass} />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="githubUrl" className={labelClass}>GitHub Profile URL</label>
+            <input 
+              id="githubUrl" 
+              type="text" 
+              placeholder="github.com/your-name" 
+              value={githubUrl}
+              onChange={(e) => setGithubUrl(e.target.value)}
+              className={inputClass} />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="linkedInUrl" className={labelClass}>LinkedIn Profile URL</label>
+            <input 
+              id="linkedInUrl" 
+              type="text" 
+              placeholder="https://www.linkedin.com/in/your-name" 
+              value={linkedInUrl}
+              onChange={(e) => setLinkedInUrl(e.target.value)}
               className={inputClass} />
           </div>
 
