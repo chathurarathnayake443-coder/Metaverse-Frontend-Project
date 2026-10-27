@@ -29,7 +29,7 @@ const Register = () => {
   const[confirmPassword, setConfirmPassword] = useState("")
   const matching = password === confirmPassword;
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if(!name || !email || !address || !contact || !password || !confirmPassword){
         toast.error("Please Enter All Fields to Register !")
     }
@@ -43,10 +43,13 @@ const Register = () => {
     }
 
     try{
-      // await register(name, email, address, contact, password, githu)
+      await register(name, email, address, contact, password, githubUrl, linkedInUrl, employed, company, jobRole)
+      toast.success("Registration Success !")
+      navigate("/login")
     }
     catch(error){
-
+      console.error("Error in register function ", error)
+      toast.error("Registration Failed !")
     }
 
   }
