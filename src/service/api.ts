@@ -1,0 +1,5 @@
+import axios, {AxiosError} from "axios"
+
+const api = axios.create({
+    baseURL:"http://localhost"
+})

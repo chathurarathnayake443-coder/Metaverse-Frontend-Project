@@ -38,6 +38,14 @@ const Register = () => {
     if(password !== confirmPassword){
       toast.error("Passwords doesn't Match !")
     }
+
+    try{
+      
+    }
+    catch(error){
+
+    }
+
   }
 
   return (
@@ -201,6 +209,7 @@ const Register = () => {
           <button type="button" className="btn w-full my-4 rounded-full bg-black text-white hover:bg-gray-800" onClick={handleRegister}>
             Create Account
           </button>
+          <label className="text-gray-500 text-sm" htmlFor="">Seeking Employees as a Company? Visit here, <Link to={"/company-signup"} className="font-bold text-black text-sm">Company Signup</Link> </label>
           <hr className="my-6" />
           <div className="font-outfit text-center text-gray-600">Already have an Account?</div>
 
