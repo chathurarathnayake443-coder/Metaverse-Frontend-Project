@@ -2,6 +2,8 @@ import { useState } from "react"
 import NavBar from "../components/NavBar.tsx"
 import Footer from "../components/Footer.tsx"
 import { Eye, EyeOff } from "lucide-react"
+import toast from "react-hot-toast"
+import {login} from "../service/auth.ts"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -9,6 +11,33 @@ const labelClass = "mb-2 font-outfit text-sm font-semibold md:text-base"
 
 const Login = () => {
   const [show, setShow] = useState(false)
+  const[email, setEmail] = useState("")
+  const[password, setPassword] = useState("")
+
+  const handleLogin = async () => {
+    if(!email || !password){
+      toast.error("Please Enter All Fields to Login !")
+    }
+
+    try{
+      const res = await login(email,password)
+
+      const resdata = res.data
+      const accessToken = resdata.access_token
+      const refreshToken = resdata.refresh_token
+
+      if(accessToken && refreshToken){
+        localStorage.setItem("Access Token", accessToken)
+        localStorage.setItem("Refresh Token", refreshToken)
+
+        window.location.href="/seeker-dashboard"
+      }
+    }
+    catch(error){
+      console.error("Error in login function",error)
+      toast.error("Login Failed !")
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -26,7 +55,13 @@ const Login = () => {
         <form className="relative w-full max-w-lg space-y-4 rounded-3xl border-2 border-black p-6 sm:p-10">
           <div className="flex flex-col">
             <label htmlFor="email" className={labelClass}>Email</label>
-            <input id="email" className={inputClass} type="email" placeholder="chathura@example.com" />
+            <input 
+              id="email" 
+              className={inputClass} 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="chathura@example.com" />
           </div>
 
           <div className="flex flex-col">
@@ -35,6 +70,8 @@ const Login = () => {
               <input
                 id="password"
                 type={show ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className={`${inputClass} pr-14`}
                 placeholder="••••••••••••••••"
               />
@@ -49,7 +86,7 @@ const Login = () => {
             </div>
           </div>
 
-          <button type="button" className="btn my-4 w-full rounded-full bg-black text-white hover:bg-gray-800">
+          <button type="button" onClick={handleLogin} className="btn my-4 w-full rounded-full bg-black text-white hover:bg-gray-800">
             Log In
           </button>
         </form>
