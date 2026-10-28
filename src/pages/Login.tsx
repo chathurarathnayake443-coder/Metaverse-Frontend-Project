@@ -1,18 +1,22 @@
-import { useState } from "react"
+import { useState , useContext} from "react"
 import NavBar from "../components/NavBar.tsx"
 import Footer from "../components/Footer.tsx"
 import { Eye, EyeOff } from "lucide-react"
 import toast from "react-hot-toast"
-import {login} from "../service/auth.ts"
+import {getMyDetails, login} from "../service/auth.ts"
+import { AuthContext } from '../context/AuthContext'
+import { useNavigate } from "react-router"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
 const labelClass = "mb-2 font-outfit text-sm font-semibold md:text-base"
 
 const Login = () => {
+  const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const[email, setEmail] = useState("")
   const[password, setPassword] = useState("")
+  const { setUser } = useContext(AuthContext)!
 
   const handleLogin = async () => {
     if(!email || !password){
@@ -27,10 +31,13 @@ const Login = () => {
       const refreshToken = resdata.refresh_token
 
       if(accessToken && refreshToken){
-        localStorage.setItem("Access Token", accessToken)
-        localStorage.setItem("Refresh Token", refreshToken)
+        localStorage.setItem("ACCESS_TOKEN", accessToken)
+        localStorage.setItem("REFRESH_TOKEN", refreshToken)
 
-        window.location.href="/seeker-dashboard"
+        const me = await getMyDetails()
+        setUser(me.data)
+
+        navigate("/seeker-dashboard")
       }
     }
     catch(error){
