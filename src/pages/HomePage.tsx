@@ -1,4 +1,3 @@
-import React from 'react'
 import NavBar from '../components/NavBar.tsx'
 import Footer from '../components/Footer.tsx'
 import LogoSlider from '../components/LogoSlider.tsx'
@@ -19,10 +18,10 @@ const HomePage = () => {
     [mask-image:linear-gradient(to_bottom,black_30%,transparent_100%)]"
 />
 
- <div
+ {/* <div
     aria-hidden="true"
     className="pointer-events-none absolute inset-0 z-0 bg-linear-to-t from-violet-500/40 via-violet-300/15 to-transparent"
-  />
+  /> */}
 
         <div className="relative z-10">
             <h1 className='text-5xl md:text-7xl lg:text-8xl font-outfit font-bold mt-20 ml-10 leading-tight drop-shadow-2xl/30'>Move with the Latest <br /><span className="text-violet-600 drop-shadow-2xl/10">Tech Stack⚡</span><span className="inline-flex items-center gap-1 whitespace-nowrap text-3xl font-outfit text-gray-400 ml-3">

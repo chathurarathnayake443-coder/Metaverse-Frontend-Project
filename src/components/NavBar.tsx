@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
   <>
-    <header className="bg-gray-950 w-full h-18 text-white flex flex-row items-center">
+    <header className="bg-gray-950 w-full h-18 text-white flex flex-row items-center sticky top-0 z-50">
         <img src="/src/assets/metaverse-logo-fullname.png" alt="Logo" className="h-full" />
         <div className="flex flex-row gap-10 m-auto font-outfit items-center hidden lg:flex">
             <Link to={"/"}><span className='text-md text-white'>Home</span></Link>
@@ -38,7 +38,7 @@ const NavBar = () => {
                 className="h-10 w-10 rounded-full object-cover border border-white/30"
               />
             ) : (
-              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center font-semibold">
+              <div className="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center font-semibold">
                 {user.fullName?.charAt(0).toUpperCase()}
               </div>
             )}
@@ -58,12 +58,12 @@ const NavBar = () => {
           </Link>
         )}
 
-        <Menu className='lg:hidden ml-auto mr-8' />    <Menu className='lg:hidden ml-auto mr-8'/>
+        <Menu className='lg:hidden ml-auto mr-8' />
     </header>
 
     <dialog ref={confirmRef} className="modal">
-        <div className="modal-box bg-gray-900 text-white">
-          <h3 className="font-bold text-lg">Sign out?</h3>
+        <div className="modal-box bg-white text-black rounded-2xl border-0 border-black">
+          <h3 className="font-bold text-lg">Sign out</h3>
           <p className="py-4">Are you sure you want to sign out?</p>
           <div className="modal-action">
             <button className="btn" onClick={() => confirmRef.current?.close()}>Cancel</button>

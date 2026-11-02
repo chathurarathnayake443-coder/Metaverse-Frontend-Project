@@ -18,7 +18,7 @@ const AuthProvider = ({children}:AuthProviderTypes) => {
     const[user, setUser] = useState(null)
     const[loading, setLoading] = useState(true)
     useEffect(() => {
-        const accessToken = localStorage.getItem("Access Token")
+        const accessToken = localStorage.getItem("ACCESS_TOKEN")
         if(accessToken){
             setLoading(true)
             getMyDetails().then((res) => {
