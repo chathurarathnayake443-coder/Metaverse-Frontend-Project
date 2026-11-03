@@ -6,6 +6,7 @@ import toast from "react-hot-toast"
 import {getMyDetails, login} from "../service/auth.ts"
 import { AuthContext } from '../context/AuthContext'
 import { useNavigate } from "react-router"
+import { LoaderIcon } from "lucide-react"
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
@@ -16,6 +17,7 @@ const Login = () => {
   const [show, setShow] = useState(false)
   const[email, setEmail] = useState("")
   const[password, setPassword] = useState("")
+  const[isLoggingIn, setIsLoggingIn] = useState(false)
   const { setUser } = useContext(AuthContext)!
 
   const handleLogin = async () => {
@@ -23,6 +25,7 @@ const Login = () => {
       toast.error("Please Enter All Fields to Login !")
     }
 
+    setIsLoggingIn(true)
     try{
       const res = await login(email,password)
 
@@ -43,6 +46,9 @@ const Login = () => {
     catch(error){
       console.error("Error in login function",error)
       toast.error("Login Failed !")
+    }
+    finally{
+      setIsLoggingIn(false)
     }
   }
 
@@ -94,7 +100,14 @@ const Login = () => {
           </div>
 
           <button type="button" onClick={handleLogin} className="btn my-4 w-full rounded-full bg-black text-white hover:bg-gray-800">
-            Log In
+            {isLoggingIn ? (
+                <>
+                  <LoaderIcon className="animate-spin size-5" />
+                  Logging in...
+                </>
+              ) : (
+                "Log In"
+              )}
           </button>
         </form>
       </main>

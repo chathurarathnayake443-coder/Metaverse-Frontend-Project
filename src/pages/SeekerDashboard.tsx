@@ -9,7 +9,7 @@ const SeekerDashboard = () => {
     <div className="flex min-h-screen flex-col">
       <NavBar/>
       <section className='flex-1'>
-        <aside className='hidden md:block fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] bg-gray-200 p-3 overflow-y-auto'>
+        <aside className='hidden md:block bg-gray-200 fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
           <div className='flex flex-col gap-1 mt-5'>
             <div className='text-md p-3 font-semibold'>Vacancies</div>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Posts</div>

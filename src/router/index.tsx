@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Register from "../pages/SignUp";
 import SeekerDashboard from "../pages/SeekerDashboard";
 import CompanySignUp from "../pages/CompanySignUp";
+import VacancyPage from "../pages/VacancyPage";
 import type { ReactNode } from "react";
 import {LoaderIcon} from "lucide-react"
 import useAuth from "../hooks/useAuth";
@@ -52,6 +53,15 @@ function AppRouter(){
                 element={
                     <RequireAuth>
                         <SeekerDashboard/>
+                    </RequireAuth>
+                }
+                />
+
+                <Route
+                path = "/job-vacancy"
+                element={
+                    <RequireAuth>
+                        <VacancyPage/>
                     </RequireAuth>
                 }
                 />
