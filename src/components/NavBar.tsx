@@ -9,9 +9,12 @@ const NavBar = () => {
   const navigate = useNavigate()
   const confirmRef = useRef<HTMLDialogElement>(null)
 
+  const roles: string[] = user?.roles ?? []
+  const dashboardPath = roles.includes("COMPANY") ? "/company-dashboard" : roles.includes("SEEKER") ? "/seeker-dashboard" : "/"
+
   const handleSignOut = () => {
-    localStorage.removeItem("Access Token")
-    localStorage.removeItem("Refresh Token")
+    localStorage.removeItem("ACCESS_TOKEN")
+    localStorage.removeItem("REFRESH_TOKEN")
     setUser(null)
     confirmRef.current?.close()
     navigate("/")
@@ -26,6 +29,9 @@ const NavBar = () => {
             <Link to={"/"}><span className='text-md text-white'>Service</span></Link>
             <Link to={"/"}><span className='text-md text-white'>Contact</span></Link>
             <Link to={"/"}><span className='text-md text-white'>About</span></Link>
+            {!loading && user && (
+            <Link to={dashboardPath}><span className='text-md text-white'>Dashboard</span></Link>
+  )}
         </div>
         <img src="/src/assets/collab-logo.jpeg" alt="Logo" className="h-13 mr-8 hidden lg:block" />
 

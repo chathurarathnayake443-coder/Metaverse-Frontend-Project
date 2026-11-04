@@ -3,8 +3,9 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import AppleLogo from "../assets/apple.png"
 import VerfiedTick from "../assets/verified.png"
-import { UserRoundCheck, BriefcaseBusiness } from 'lucide-react';
+import { UserRoundCheck, BriefcaseBusiness, Plus } from 'lucide-react';
 import VacancyCard from '../components/VacancyCard'
+import { Link } from "react-router"
 
 const CompanyDashboard = () => {
   return (
@@ -36,15 +37,21 @@ const CompanyDashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className='absolute flex flex-row gap-5 top-25 right-8 sm:top-30 sm:right-15 bg-gray-100 p-2 rounded-2xl'>
-                    <span className='flex flex-row gap-1'>
+                <div className='absolute flex flex-col gap-3 top-20 right-5 xl:top-25 xl:right-8 sm:top-23 sm:right-15 lg:top-24 md:top-22 p-2'>
+                    <div className='flex flex-row gap-5 bg-gray-100 p-2 rounded-2xl'>
+                        <span className='flex flex-row gap-1'>
                         <UserRoundCheck className='text-green-500'/>
                         <span>18</span>
-                    </span>
-                    <span className='flex flex-row gap-1'>
-                        <BriefcaseBusiness className='text-red-500'/>
-                        <span>20</span>
-                    </span>
+                        </span>
+                        <span className='flex flex-row gap-1'>
+                            <BriefcaseBusiness className='text-red-500'/>
+                            <span>20</span>
+                        </span>
+                    </div>
+                    <Link to={"/create-officer"} className='bg-blue-500 p-2 rounded-lg flex flex-row justify-around items-center hover:cursor-pointer hover:bg-blue-600'>
+                        <Plus className='text-white text-xs'/>
+                        <span className='text-white text-xs'>New Officer</span>
+                    </Link>
                 </div>
                 <div className='flex justify-center items-center p-5 container'>
                     <div className='bg-gray-100 text-gray-600 rounded-2xl container p-5'>
