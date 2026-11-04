@@ -76,7 +76,7 @@ const VacancyPage = () => {
                     </div>
                 </div>
                 <div>Description</div>
-                <div className='p-5 mt-3 text-gray-600 text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus nesciunt non, fuga fugit ullam tempore? Necessitatibus rem tempora, similique odio quae, corporis enim, ducimus unde fugiat dolorem eum. Similique, esse.
+                <div className='p-5 mt-3 text-gray-600 text-sm text-justify'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus nesciunt non, fuga fugit ullam tempore? Necessitatibus rem tempora, similique odio quae, corporis enim, ducimus unde fugiat dolorem eum. Similique, esse.
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, aut distinctio. Dolore quo sapiente ad omnis temporibus deserunt, adipisci in aliquam fugiat voluptatem ullam aspernatur a sit nemo. Consectetur, libero.
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus nesciunt non, fuga fugit ullam tempore? Necessitatibus rem tempora, similique odio quae, corporis enim, ducimus unde fugiat dolorem eum. Similique, esse.
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, aut distinctio. DoloreLorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus nesciunt non, fuga fugit ullam tempore? Necessitatibus rem tempora, similique odio quae, corporis enim, ducimus unde fugiat dolorem eum. Similique, esse.
@@ -90,12 +90,12 @@ const VacancyPage = () => {
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Github Repository URL</span>
-                    <input type="text" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaLinkedin className='w-6 h-6 text-blue-700'/>
                     <span className='text-sm font-semibold mr-16'>LinkedIn URL</span>
-                    <input type="text" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input type="text" placeholder="https://www.linkedin.com/in/your-name" className='bg-gray-100 rounded-xl p-2 flex-1'/>
                    </div>
                    <div className='flex flex-row justify-start items-center gap-2 container'>
                     <File className='w-6 h-6'/>
@@ -125,17 +125,17 @@ const VacancyPage = () => {
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 1</span>
-                    <input type="text" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 2</span>
-                    <input type="text" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 3</span>
-                    <input type="text" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
                    </div>
                 </div>
                 <hr className='border-gray-300 border-2 mb-3'/>

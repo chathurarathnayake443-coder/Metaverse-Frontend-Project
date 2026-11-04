@@ -2,6 +2,7 @@ import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import Register from "../pages/SignUp";
 import SeekerDashboard from "../pages/SeekerDashboard";
+import CompanyDashboard from "../pages/CompanyDashboard";
 import CompanySignUp from "../pages/CompanySignUp";
 import VacancyPage from "../pages/VacancyPage";
 import type { ReactNode } from "react";
@@ -51,7 +52,7 @@ function AppRouter(){
                 <Route
                 path = "/seeker-dashboard"
                 element={
-                    <RequireAuth>
+                    <RequireAuth roles={["SEEKER"]}>
                         <SeekerDashboard/>
                     </RequireAuth>
                 }
@@ -60,13 +61,21 @@ function AppRouter(){
                 <Route
                 path = "/job-vacancy"
                 element={
-                    <RequireAuth>
+                    <RequireAuth roles={["SEEKER"]}>
                         <VacancyPage/>
                     </RequireAuth>
                 }
                 />
 
                 {/* {Company Only} */}
+                <Route
+                path = "/company-dashboard"
+                element={
+                    <RequireAuth roles={["COMPANY"]}>
+                        <CompanyDashboard/>
+                    </RequireAuth>
+                }
+                />
 
                 {/* {Officer Only} */}
 

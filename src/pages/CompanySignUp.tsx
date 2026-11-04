@@ -20,11 +20,61 @@ const CompanySignUp = () => {
     const[password, setPassword] = useState("")
     const[confirmPassword, setConfirmPassword] = useState("")
     const[show, setShow] = useState(false)
+    const navigate = useNavigate()
 
     const matching = password === confirmPassword;
 
-    const handleRegister = ()=> {
+      const isValidEmail = (email: string): boolean => {
+    const value = email.trim()
 
+    return (
+      value.includes("@") &&
+      value.includes(".") &&
+      !value.includes(" ") &&
+      !value.startsWith("@") &&
+      !value.endsWith(".") &&
+      value.indexOf("@") === value.lastIndexOf("@") &&  
+      value.indexOf(".", value.indexOf("@")) > value.indexOf("@") + 1 
+    )
+}
+
+  const isValidUrl = (url: string): boolean => {
+    const value = url.trim()
+
+    return (
+      (value.startsWith("http://") || value.startsWith("https://")) &&
+      value.includes(".") &&
+      !value.includes(" ") &&
+      value.length > value.indexOf("://") + 3 + 3  
+    )
+}
+
+    const handleRegister = async ()=> {
+        if(!name || !email || !address || !contact || !website || !password || !confirmPassword){
+            return toast.error("Please Fill All Fields to Register !")
+        }
+
+        if(password !== confirmPassword){
+            return toast.error("Passwords doesn't Match !")
+        }
+
+        if(!isValidEmail(email)){
+            return toast.error("Please Enter a Valid Email Address !...")
+        }
+
+        if(!isValidUrl(website)){
+            return toast.error("Please Enter a Valid URL")
+        }
+
+        try{
+            await companyRegister(name, email, address, contact, website, password)
+            toast.success("Registration Success !")
+            navigate("/login")
+        }
+        catch(error){
+            console.error("Error in Register Function !...", error)
+            toast.error("Registration Failed !...")
+        }
     }
 
   return (
