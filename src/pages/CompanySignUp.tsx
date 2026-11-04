@@ -5,6 +5,7 @@ import { useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import { Eye, EyeOff } from "lucide-react"
 import {Link} from "react-router"
+import { companyRegister } from "../service/auth";
 
 const inputClass =
   "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
