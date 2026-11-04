@@ -40,7 +40,17 @@ const Login = () => {
         const me = await getMyDetails()
         setUser(me.data)
 
-        navigate("/seeker-dashboard")
+        const roles: string[] = me.data.roles ?? []
+
+        //navigate("/seeker-dashboard")
+
+        if (roles.includes("COMPANY")) {
+          navigate("/company-dashboard")
+        } else if (roles.includes("SEEKER")) {
+          navigate("/seeker-dashboard")
+        } else {
+          navigate("/")
+        }
       }
     }
     catch(error){

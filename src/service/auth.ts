@@ -17,7 +17,7 @@ export const register = async (name:string, email:string, address:string, contac
 }
 
 export const companyRegister = async (name:string, email:string, address:string, contact:string, website:string, password:string) => {
-    const res = await api.post("/auth/company-register",{
+    const res = await api.post("/auth/company-signup",{
         name,
         email,
         address,
