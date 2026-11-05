@@ -15,7 +15,7 @@ const CompanyDashboard = () => {
         <aside className='hidden md:block bg-gray-200 fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
           <div className='flex flex-col gap-1 mt-5'>
             <div className='text-md p-3 font-semibold'>Vacancies</div>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>New Post</div>
+            <Link to={"/new-post"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>New Post</Link>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Expired Posts</div>
             <div className='text-md p-3 font-semibold'>Officers</div>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Officers</div>

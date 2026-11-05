@@ -9,6 +9,7 @@ import type { ReactNode } from "react";
 import {LoaderIcon} from "lucide-react"
 import useAuth from "../hooks/useAuth";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router";
+import CreateVacancyPage from '../pages/CreateVacancyPage'
 
 type RequireAuthTypes = {
     children : ReactNode,
@@ -73,6 +74,15 @@ function AppRouter(){
                 element={
                     <RequireAuth roles={["COMPANY"]}>
                         <CompanyDashboard/>
+                    </RequireAuth>
+                }
+                />
+
+                <Route
+                path = "/new-post"
+                element={
+                    <RequireAuth roles={["COMPANY"]}>
+                        <CreateVacancyPage/>
                     </RequireAuth>
                 }
                 />
