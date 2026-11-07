@@ -3,17 +3,19 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { ArrowLeft, SquarePen, LoaderIcon, Upload, TrashIcon, CircleCheck } from "lucide-react"
 import toast from 'react-hot-toast'
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
+import { createVacancy } from '../service/vacancy.ts'
 
 const CreateVacancyPage = () => {
 
     const[title, setTitle] = useState("")
     const[description, setDescription] = useState("")
-    const [file, setFile] = useState<File | null>(null)
-    const [uploading, setUploading] = useState(false)
+    const[deadline, setDeadline] = useState("")
+    const[file, setFile] = useState<File | null>(null)
     const inputRef = useRef<HTMLInputElement>(null)
+    const navigate = useNavigate()
 
-     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0]
     if (!selected) return
 
@@ -30,22 +32,20 @@ const CreateVacancyPage = () => {
     setFile(selected)
   }
 
-  const handleUpload = async () => {
-    if (!file) {
-      toast.error("Please choose a PDF first !")
-      return
+  const handleSubmitPost = async () => {
+
+    if(!title || !description || !file || !deadline){
+        return toast.error("Please fill All Fields before Submit !")
     }
-    setUploading(true)
-    try {
-      //await uploadTask(file)
-      toast.success("CV uploaded !")
-      setFile(null)
-      if (inputRef.current) inputRef.current.value = ""
-    } catch (error) {
-      console.error(error)
-      toast.error("Upload failed !")
-    } finally {
-      setUploading(false)
+
+    try{
+        await createVacancy(title, description, deadline, file)
+        toast.success("Vacancy Posted Successfully !")
+        navigate("/company-dashboard")
+    }
+    catch(error){
+        console.error("Error in Create Vacancy Function ", error)
+        toast.error("Vacancy Creation Failed !")
     }
   }
 
@@ -77,6 +77,7 @@ const CreateVacancyPage = () => {
                 </div>
                 <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
                     <label className="font-outfit text-md text-gray-500">Upload Task</label>
+                    <div className='flex flex-col gap-2'>
                         <input
                             ref={inputRef}
                             type="file"
@@ -84,17 +85,21 @@ const CreateVacancyPage = () => {
                             onChange={handleChange}
                             className="file-input min-w-90 md:ml-6 p-2"
                         />
-                        {file && <p className="text-sm text-gray-600">Selected: {file.name}</p>}
-                        <button
-                            type="button"
-                            onClick={handleUpload}
-                            disabled={uploading || !file}
-                            className="flex flex-row w-30 rounded-md items-center text-xs bg-gray-700 hover:bg-black text-white hover:cursor-pointer p-2 gap-2"
-                        >
-                            {uploading ? <LoaderIcon className="animate-spin size-5" /> : <Upload size={18} />}
-                            {uploading ? "Uploading..." : "Upload Task"}
-                        </button>
+                        {file && <p className="text-sm text-gray-600 md:ml-6">Selected: {file.name}</p>}
+                    </div>     
+                        
                 </div>
+
+                <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
+                    <label htmlFor="" className='text-md text-gray-500'>Deadline Date</label>
+                    <input type="date" 
+                        className='bg-white rounded-lg min-w-90 h-10 md:ml-3 p-2' 
+                        placeholder='dd-mm-yyyy'
+                        value={deadline}
+                        onChange={(e) => setDeadline(e.target.value)}
+                        />
+                </div>
+
                 <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
                     <label htmlFor="" className='text-md text-gray-500 max-w-2xl'>Description</label>
                     <textarea 
@@ -104,12 +109,12 @@ const CreateVacancyPage = () => {
                         onChange={(e) => setDescription(e.target.value)}
                         />
                 </div>
-                <div className='flex flex-row justify-center items-center gap-4 mt-3'>
-                    <button className='bg-red-500 min-w-30 text-white text-sm rounded-md p-2 flex flex-row justify-around items-center'>
+                <div className='flex flex-row justify-center items-center gap-4 mt-3 md:ml-25'>
+                    <button className='bg-red-500 min-w-30 text-white text-sm rounded-md p-2 flex flex-row justify-around items-center hover:cursor-pointer hover:bg-red-600'>
                         <TrashIcon size={20}/>
                         <span>Discard</span>
                     </button>
-                    <button className='bg-blue-500 text-white min-w-30 text-sm rounded-md p-2 flex flex-row gap-2 justify-around items-center'>
+                    <button onClick={handleSubmitPost} className='bg-blue-500 text-white min-w-30 text-sm rounded-md p-2 flex flex-row gap-2 justify-around items-center hover:cursor-pointer hover:bg-blue-600'>
                         <CircleCheck size={20}/>
                         <span>Post Vacancy</span>
                     </button>
