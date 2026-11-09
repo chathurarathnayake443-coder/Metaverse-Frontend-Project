@@ -10,7 +10,12 @@ import toast from 'react-hot-toast'
 
 const VacancyPage = () => {
 
+    const[githubURL, setGithubURL] = useState("")
+    const[linkedInURL, setLinkedInURL] = useState("")
     const [file, setFile] = useState<File | null>(null)
+    const[sampleURL1, setSampleURL1] = useState("")
+    const[sampleURL2, setSampleURL2] = useState("")
+    const[sampleURL3, setSampleURL3] = useState("")
     const [uploading, setUploading] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -31,23 +36,8 @@ const VacancyPage = () => {
     setFile(selected)
   }
 
-  const handleUpload = async () => {
-    if (!file) {
-      toast.error("Please choose a PDF first !")
-      return
-    }
-    setUploading(true)
-    try {
-      //await uploadCv(file)
-      toast.success("CV uploaded !")
-      setFile(null)
-      if (inputRef.current) inputRef.current.value = ""
-    } catch (error) {
-      console.error(error)
-      toast.error("Upload failed !")
-    } finally {
-      setUploading(false)
-    }
+  const handleSubmission = () => {
+    
   }
 
   return (
@@ -65,11 +55,11 @@ const VacancyPage = () => {
                 <div className='flex flex-row justify-between items-center'>
                     <div className='text-2xl font-semibold'>Senior Software Engineer</div>
                     <div className='flex flex-row justify-around items-center gap-3'>
-                        <div className='flex flex-row justify-around items-center gap-1 tooltip' data-tip="Submissions">
+                        <div className='flex flex-row justify-around items-center gap-1 tooltip hover:cursor-pointer' data-tip="Submissions">
                         <CircleFadingArrowUp className='text-green-600'/>
                         <span className='text-gray-700 text-xs'>18</span>
                     </div>
-                    <div className='flex flex-row justify-around items-center gap-1 tooltip' data-tip="Deadline">
+                    <div className='flex flex-row justify-around items-center gap-1 tooltip hover:cursor-pointer' data-tip="Deadline">
                         <Timer className='text-red-600'/>
                         <span className='text-gray-700 text-xs'>Jul 18</span>
                     </div>
@@ -90,12 +80,24 @@ const VacancyPage = () => {
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Github Repository URL</span>
-                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input 
+                        type="text" 
+                        placeholder='https://github.com/user-name/project-name.git' 
+                        className='bg-gray-100 rounded-xl p-2 flex-1'
+                        value={githubURL}
+                        onChange={(e) => setGithubURL(e.target.value)}
+                        />
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaLinkedin className='w-6 h-6 text-blue-700'/>
                     <span className='text-sm font-semibold mr-16'>LinkedIn URL</span>
-                    <input type="text" placeholder="https://www.linkedin.com/in/your-name" className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input 
+                        type="text" 
+                        placeholder="https://www.linkedin.com/in/your-name" 
+                        className='bg-gray-100 rounded-xl p-2 flex-1'
+                        value={linkedInURL}
+                        onChange={(e) => setLinkedInURL(e.target.value)}
+                        />
                    </div>
                    <div className='flex flex-row justify-start items-center gap-2 container'>
                     <File className='w-6 h-6'/>
@@ -108,15 +110,6 @@ const VacancyPage = () => {
                             className="file-input w-full max-w-md"
                         />
                         {file && <p className="text-sm text-gray-600">Selected: {file.name}</p>}
-                        <button
-                            type="button"
-                            onClick={handleUpload}
-                            disabled={uploading || !file}
-                            className="flex flex-row w-fit rounded-md text-xs bg-gray-700 hover:bg-black text-white hover:cursor-pointer p-2 gap-2"
-                        >
-                            {uploading ? <LoaderIcon className="animate-spin size-5" /> : <Upload size={18} />}
-                            {uploading ? "Uploading..." : "Upload CV"}
-                        </button>
                    </div>
                 </div>
                 <hr className='border-gray-300 border-2 mb-3'/>
@@ -125,17 +118,35 @@ const VacancyPage = () => {
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 1</span>
-                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input 
+                        type="text" 
+                        placeholder='https://github.com/user-name/project-name.git' 
+                        className='bg-gray-100 rounded-xl p-2 flex-1'
+                        value={sampleURL1}
+                        onChange={(e) => setSampleURL1(e.target.value)}
+                        />
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 2</span>
-                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input  
+                        type="text" 
+                        placeholder='https://github.com/user-name/project-name.git' 
+                        className='bg-gray-100 rounded-xl p-2 flex-1'
+                        value={sampleURL2}
+                        onChange={(e) => setSampleURL2(e.target.value)}
+                        />
                    </div>
                    <div className='flex flex-row gap-2 justify-start items-center container'>
                     <FaGithub className='w-6 h-6'/>
                     <span className='text-sm font-semibold'>Repository URL 3</span>
-                    <input type="text" placeholder='https://github.com/user-name/project-name.git' className='bg-gray-100 rounded-xl p-2 flex-1'/>
+                    <input 
+                        type="text" 
+                        placeholder='https://github.com/user-name/project-name.git' 
+                        className='bg-gray-100 rounded-xl p-2 flex-1'
+                        value={sampleURL3}
+                        onChange={(e) => setSampleURL3(e.target.value)}
+                        />
                    </div>
                 </div>
                 <hr className='border-gray-300 border-2 mb-3'/>

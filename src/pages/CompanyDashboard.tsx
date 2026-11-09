@@ -39,11 +39,11 @@ const CompanyDashboard = () => {
                 </div>
                 <div className='absolute flex flex-col gap-3 top-20 right-5 xl:top-25 xl:right-8 sm:top-23 sm:right-15 lg:top-24 md:top-22 p-2'>
                     <div className='flex flex-row gap-5 bg-gray-100 p-2 rounded-2xl'>
-                        <span className='flex flex-row gap-1'>
+                        <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Officers">
                         <UserRoundCheck className='text-green-500'/>
                         <span>18</span>
                         </span>
-                        <span className='flex flex-row gap-1'>
+                        <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Vacancies">
                             <BriefcaseBusiness className='text-red-500'/>
                             <span>20</span>
                         </span>
@@ -64,10 +64,10 @@ const CompanyDashboard = () => {
                     </div>
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
+                    {/* <VacancyCard/>
                     <VacancyCard/>
                     <VacancyCard/>
-                    <VacancyCard/>
-                    <VacancyCard/>
+                    <VacancyCard/> */}
                 </div>
             </div>
         <Footer/>
