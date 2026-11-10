@@ -45,3 +45,10 @@ export const refreshTokenCall = async (refreshToken: string) => {
   const res = await api.post("/auth/refresh", { refreshToken })
   return res.data
 }
+
+export const uploadProfileImage = async (file: File) => {
+  const formData = new FormData()
+  formData.append("image", file)    
+  const res = await api.put("/auth/profile-image", formData)
+  return res.data
+}

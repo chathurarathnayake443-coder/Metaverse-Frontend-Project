@@ -17,3 +17,8 @@ export const getAllVacancies = async() => {
     const res = await api.get("/vacancy/all-vacancies")
     return res.data
 }
+
+export const getMyVacancies = async () => {
+  const res = await api.get("/vacancies/mine")
+  return res.data       
+}

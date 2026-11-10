@@ -10,6 +10,7 @@ import {LoaderIcon} from "lucide-react"
 import useAuth from "../hooks/useAuth";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 import CreateVacancyPage from '../pages/CreateVacancyPage'
+import CompanyDetailsEditPage from "../pages/CompanyDetailsEditPage";
 
 type RequireAuthTypes = {
     children : ReactNode,
@@ -83,6 +84,15 @@ function AppRouter(){
                 element={
                     <RequireAuth roles={["COMPANY"]}>
                         <CreateVacancyPage/>
+                    </RequireAuth>
+                }
+                />
+
+                <Route
+                path = "/edit-profile"
+                element={
+                    <RequireAuth roles={["COMPANY"]}>
+                        <CompanyDetailsEditPage/>
                     </RequireAuth>
                 }
                 />
