@@ -19,6 +19,6 @@ export const getAllVacancies = async() => {
 }
 
 export const getMyVacancies = async () => {
-  const res = await api.get("/vacancies/mine")
+  const res = await api.get("/vacancy/vacancies/mine")
   return res.data       
 }

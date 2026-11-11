@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default;
+  themes: dark --default;
 }
 
 @theme {
@@ -15,10 +15,12 @@
 body {
   min-height: 100vh;
   background-repeat: no-repeat;
+  background-color: #000;
 }
 
 html {
   scrollbar-gutter: auto;
+  background-color: #000;
 }
 html, body {
   overscroll-behavior-y: none;

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import VerfiedTick from "../assets/verified.png"
-import { UserRoundCheck, BriefcaseBusiness, Plus } from 'lucide-react';
+import { UserRoundCheck, BriefcaseBusiness, Plus, BadgeCheck } from 'lucide-react';
 import VacancyCard from '../components/VacancyCard'
 import { Link } from "react-router"
 import type { Vacancy } from "../types/vacancy.ts"
-import { getAllVacancies } from '../service/vacancy'
+import { getMyVacancies } from '../service/vacancy'
 import type { CompanyInfo } from '../types/company.ts'
 import { getMyCompany } from '../service/company.ts'
 
@@ -22,7 +22,7 @@ const CompanyDashboard = () => {
             }, [])
 
     const fetchVacancies = () => {
-        getAllVacancies().then((res) => {
+        getMyVacancies().then((res) => {
           setVacancies(res)
           console.log(res)
         })
@@ -47,16 +47,16 @@ const CompanyDashboard = () => {
     <div className='flex flex-col'>
       <NavBar/>
       <section className='flex-1'>
-        <aside className='hidden md:block bg-gray-200 fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
+        <aside className='hidden md:block bg- fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
           <div className='flex flex-col gap-1 mt-5'>
             <div className='text-md p-3 font-semibold'>Vacancies</div>
-            <Link to={"/new-post"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>New Post</Link>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Expired Posts</div>
+            <Link to={"/new-post"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>New Post</Link>
+            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Expired Posts</div>
             <div className='text-md p-3 font-semibold'>Officers</div>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Officers</div>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Your Questions</div>
+            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Officers</div>
+            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Your Questions</div>
             <div className='text-md p-3 font-semibold'>Account</div>
-            <Link to={"/edit-profile"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Settings</Link>
+            <Link to={"/edit-profile"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Settings</Link>
           </div>
         </aside>
         <div className='flex-1 flex flex-col md:ml-56'>
@@ -73,7 +73,7 @@ const CompanyDashboard = () => {
                         <div className='flex flex-col gap-3'>
                             <div className='flex flex-row items-center justify-around gap-5'>
                                 <span className='md:text-5xl text-3xl font-semibold'>{company?.name}</span>
-                                <img src={VerfiedTick} alt="verified-tick" className='md:max-w-10 max-w-7'/>
+                                <BadgeCheck className='md:w-10 md:h-10 w-7 h-7 fill-blue-500 text-blue-500 [&>path:last-child]:stroke-white' />
                             </div>
                             <span className='text-gray-500'>{company?.address}</span>
                         </div>
@@ -83,20 +83,20 @@ const CompanyDashboard = () => {
                     <div className='flex flex-row gap-5 bg-gray-100 p-2 rounded-2xl'>
                         <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Officers">
                         <UserRoundCheck className='text-green-500'/>
-                        <span>{company?.noOfVerifiedOfficers}</span>
+                        <span className='text-black'>{company?.noOfVerifiedOfficers}</span>
                         </span>
                         <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Vacancies">
                             <BriefcaseBusiness className='text-red-500'/>
-                            <span>{company?.noOfVacancies}</span>
+                            <span className='text-black'>{company?.noOfVacancies}</span>
                         </span>
                     </div>
-                    <Link to={"/create-officer"} className='bg-blue-500 p-2 rounded-lg flex flex-row justify-around items-center hover:cursor-pointer hover:bg-blue-600'>
+                    <Link to={"/create-officer"} className='bg-green-800 p-2 rounded-lg flex flex-row justify-around items-center hover:cursor-pointer hover:bg-green-900'>
                         <Plus className='text-white text-xs'/>
                         <span className='text-white text-xs'>New Officer</span>
                     </Link>
                 </div>
                 <div className='flex justify-center items-center p-5 container'>
-                    <div className='bg-gray-100 text-gray-600 rounded-2xl container p-5'>
+                    <div className='bg-gray-900 text-gray-300 text-md rounded-2xl container p-5'>
                         {company?.description || "No description added yet."}
                     </div>
                 </div>

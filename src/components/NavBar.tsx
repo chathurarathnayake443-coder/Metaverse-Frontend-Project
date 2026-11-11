@@ -22,8 +22,8 @@ const NavBar = () => {
 
   return (
   <>
-    <header className="bg-gray-950 w-full h-18 text-white flex flex-row items-center sticky top-0 z-50">
-        <img src="/src/assets/metaverse-logo-fullname.png" alt="Logo" className="h-full" />
+    <header className="bg-gray-950/10 backdrop-blur-md w-full h-18 text-white flex flex-row items-center sticky top-0 z-50">
+        <img src="/src/assets/bg-removed-logo.png" alt="Logo" className="h-full" />
         <div className="flex flex-row gap-10 m-auto font-outfit items-center hidden lg:flex">
             <Link to={"/"}><span className='text-md text-white'>Home</span></Link>
             <Link to={"/"}><span className='text-md text-white'>Service</span></Link>
@@ -33,7 +33,7 @@ const NavBar = () => {
             <Link to={dashboardPath}><span className='text-md text-white'>Dashboard</span></Link>
   )}
         </div>
-        <img src="/src/assets/collab-logo.jpeg" alt="Logo" className="h-13 mr-8 hidden lg:block" />
+        <img src="/src/assets/bg-removed-collab.png" alt="Logo" className="h-13 mr-8 hidden lg:block" />
 
         {loading ? null : user ? (
           <div className="hidden lg:flex items-center gap-4 mr-8">
