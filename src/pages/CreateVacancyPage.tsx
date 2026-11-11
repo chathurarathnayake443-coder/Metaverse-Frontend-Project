@@ -1,7 +1,7 @@
 import React, { useState , useRef} from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import { ArrowLeft, SquarePen, LoaderIcon, Upload, TrashIcon, CircleCheck } from "lucide-react"
+import { ArrowLeft, SquarePen, TrashIcon, CircleCheck } from "lucide-react"
 import toast from 'react-hot-toast'
 import { Link, useNavigate } from "react-router"
 import { createVacancy } from '../service/vacancy.ts'

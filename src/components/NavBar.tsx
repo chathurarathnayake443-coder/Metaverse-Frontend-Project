@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react'
+import {useContext, useRef} from 'react'
 import {Link, useNavigate} from "react-router"
 import {Menu} from "lucide-react"
 import { AuthContext } from '../context/AuthContext'

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import AppleLogo from "../assets/apple.png"
 import VerfiedTick from "../assets/verified.png"
 import { UserRoundCheck, BriefcaseBusiness, Plus } from 'lucide-react';
 import VacancyCard from '../components/VacancyCard'

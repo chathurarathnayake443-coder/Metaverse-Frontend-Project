@@ -5,7 +5,7 @@ import AppleLogo from "../assets/apple.png"
 import VerfiedTick from "../assets/verified.png"
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from 'react-icons/fa'
-import { Upload, LoaderIcon, Timer, CircleFadingArrowUp, File } from 'lucide-react'
+import { Timer, CircleFadingArrowUp, File } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 const VacancyPage = () => {

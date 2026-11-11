@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import { Eye, EyeOff } from "lucide-react"

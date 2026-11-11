@@ -1,11 +1,32 @@
-import React from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router';
 import UploadProfileImage from '../components/UploadProfileImage';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { editDescription } from '../service/company';
 
 const CompanyDetailsEditPage = () => {
+
+    const[description, setDescription] = useState("")
+
+    const handleEditDescription = async ()=> {
+        try{
+
+            if(!description){
+                return toast.error("Please fill the Description Field")
+            }
+
+            await editDescription(description)
+            toast.success("Successfully Updated !")
+        }
+        catch(error){
+            console.log(error)
+            toast.error("Error Updating Description !")
+        }
+    }
+
   return (
     <div>
       <NavBar/>
@@ -22,9 +43,18 @@ const CompanyDetailsEditPage = () => {
                 <div className='text-gray-500 text-sm p-2'>Upload Profile Picture</div>
                 <UploadProfileImage/>
                 <div className='text-gray-500 text-sm p-2'>Add Description</div>
-                <textarea name="" id="" className='container bg-white rounded-lg min-h-70 p-4' placeholder='Write a Description About Your Company Here...'></textarea>
+                <textarea
+                    name="" 
+                    id="" 
+                    className='container bg-white rounded-lg min-h-70 p-4' 
+                    placeholder='Write a Description About Your Company Here...'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}>
+                </textarea>
                 <div className='flex justify-end items-center p-2'>
-                    <div className='bg-gray-800 rounded-md text-white text-sm font-semibold p-1 w-40 text-center hover:cursor-pointer hover:bg-black'>
+                    <div 
+                        className='bg-gray-800 rounded-md text-white text-sm font-semibold p-1 w-40 text-center hover:cursor-pointer hover:bg-black'
+                        onClick={handleEditDescription}>
                         Save Description
                     </div>
                 </div>
