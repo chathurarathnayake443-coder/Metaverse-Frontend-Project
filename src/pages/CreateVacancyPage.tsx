@@ -53,9 +53,9 @@ const CreateVacancyPage = () => {
     <div>
       <NavBar/>
       <main className='p-3'>
-        <div className='flex flex-col p-3 bg-gray-200 rounded-lg'>
+        <div className='flex flex-col p-3 bg-gray-900 rounded-lg'>
             <div className='flex flex-row p-5'>
-                <Link to={"/company-dashboard"} className='flex flex-row gap-1 h-10 bg-gray-800 hover:bg-gray-900 hover:cursor-pointer p-2 rounded-lg justify-around items-center'>
+                <Link to={"/company-dashboard"} className='flex flex-row gap-1 h-10 bg-gray-700 hover:bg-gray-800 hover:cursor-pointer p-2 rounded-lg justify-around items-center'>
                     <ArrowLeft className='text-white w-4'/>
                     <span className='text-white text-sm'>Dashboard</span>
                 </Link>
@@ -69,7 +69,7 @@ const CreateVacancyPage = () => {
                     <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
                     <label htmlFor="" className='text-md text-gray-500'>Title</label>
                     <input type="text" 
-                        className='bg-white rounded-lg min-w-90 h-10 md:ml-21 p-2' 
+                        className='bg-white rounded-lg min-w-90 h-10 md:ml-21 text-black p-2' 
                         placeholder='Software Engineer'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -83,7 +83,7 @@ const CreateVacancyPage = () => {
                             type="file"
                             accept="application/pdf"
                             onChange={handleChange}
-                            className="file-input min-w-90 md:ml-6 p-2"
+                            className="file-input min-w-90 md:ml-6 p-2 text-white"
                         />
                         {file && <p className="text-sm text-gray-600 md:ml-6">Selected: {file.name}</p>}
                     </div>     
@@ -93,7 +93,7 @@ const CreateVacancyPage = () => {
                 <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
                     <label htmlFor="" className='text-md text-gray-500'>Deadline Date</label>
                     <input type="date" 
-                        className='bg-white rounded-lg min-w-90 h-10 md:ml-3 p-2' 
+                        className='bg-white rounded-lg min-w-90 h-10 md:ml-3 p-2 text-gray-500' 
                         placeholder='dd-mm-yyyy'
                         value={deadline}
                         onChange={(e) => setDeadline(e.target.value)}
@@ -103,7 +103,7 @@ const CreateVacancyPage = () => {
                 <div className='flex md:flex-row flex-col justify-start gap-4 mt-3'>
                     <label htmlFor="" className='text-md text-gray-500 max-w-2xl'>Description</label>
                     <textarea 
-                        className='bg-white rounded-lg min-w-90 h-30 md:ml-8 p-2' 
+                        className='bg-white rounded-lg min-w-90 h-30 md:ml-8 p-2 text-black' 
                         placeholder='We are seeking for a expertised Java Springboot developer who can design highly scalable, robust Enterprise Applications with collaborating with our teams... '
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}

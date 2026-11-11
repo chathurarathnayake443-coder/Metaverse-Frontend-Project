@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import VerfiedTick from "../assets/verified.png"
-import { UserRoundCheck, BriefcaseBusiness, Plus, BadgeCheck } from 'lucide-react';
+import { UserRoundCheck, BriefcaseBusiness, Plus, BadgeCheck, File, FileXCorner, UserRound, MessageCircleQuestionMark, Settings } from 'lucide-react';
 import VacancyCard from '../components/VacancyCard'
 import { Link } from "react-router"
 import type { Vacancy } from "../types/vacancy.ts"
@@ -47,16 +47,31 @@ const CompanyDashboard = () => {
     <div className='flex flex-col'>
       <NavBar/>
       <section className='flex-1'>
-        <aside className='hidden md:block bg- fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
+        <aside className='hidden md:block border-r-2 border-r-gray-800/60 fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
           <div className='flex flex-col gap-1 mt-5'>
             <div className='text-md p-3 font-semibold'>Vacancies</div>
-            <Link to={"/new-post"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>New Post</Link>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Expired Posts</div>
+            <Link to={"/new-post"} className='group flex flex-row gap-2 text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>
+                <File className='hidden group-hover:block text-white' size={20} />
+                <span>New Post</span>
+            </Link>
+            <div className='group text-sm p-2 flex flex-row items-center gap-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>
+                <FileXCorner className='hidden group-hover:block text-white' size={20} />
+                <span>Expired Posts</span>
+            </div>
             <div className='text-md p-3 font-semibold'>Officers</div>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Officers</div>
-            <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Your Questions</div>
+            <div className='group flex flex-row gap-2 text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>
+                <UserRound className='hidden group-hover:block text-white' size={20} />
+                <span>All Officers</span>
+            </div>
+            <div className='group flex flex-row gap-2 text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>
+                <MessageCircleQuestionMark className='hidden group-hover:block text-white' size={20} />
+                <span>Your Questions</span>
+            </div>
             <div className='text-md p-3 font-semibold'>Account</div>
-            <Link to={"/edit-profile"} className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Settings</Link>
+            <Link to={"/edit-profile"} className='group flex flex-row gap-2 text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-800 hover:border-l-2 hover:border-l-white hover:translate-x-2 hover:font-bold hover:cursor-pointer'>
+                <Settings className='hidden group-hover:block text-white' size={20} />
+                <span>Settings</span>
+            </Link>
           </div>
         </aside>
         <div className='flex-1 flex flex-col md:ml-56'>
