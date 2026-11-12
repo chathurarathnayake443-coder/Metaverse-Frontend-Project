@@ -6,5 +6,5 @@ export type CompanyInfo = {
   description?: string
   isVerified: "VERIFIED" | "NOT_VERIFIED"
   noOfVerifiedOfficers: number
-  noOfVacancies: number
+  noOfVacanciesPosted: number
 }

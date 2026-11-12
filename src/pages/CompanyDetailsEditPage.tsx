@@ -31,29 +31,29 @@ const CompanyDetailsEditPage = () => {
     <div>
       <NavBar/>
       <main className='min-h-screen flex flex-col p-3'>
-        <Link to={"/company-dashboard"} className='w-30 p-2 text-xs flex flex-row bg-gray-900 text-white rounded-md gap-2 items-center justify-center hover:bg-black hover:cursor-pointer'>
+        <Link to={"/company-dashboard"} className='w-30 p-2 text-xs flex flex-row bg-gray-300/40 text-white rounded-md gap-2 items-center justify-center hover:bg-gray-300/30 hover:cursor-pointer'>
             <ArrowLeft size={20}/>
             <span>Dashboard</span>
         </Link>
         <div className='flex justify-center items-center p-3 mt-4'>
-            <section className='bg-gray-200 rounded-lg p-2 md:min-w-200 md:min-h-140 sm:min-w-170 sm:min-h-150 min-w-100 min-h-140'>
+            <section className='bg-gray-300/10 rounded-lg p-10 md:min-w-200 md:min-h-140 sm:min-w-170 sm:min-h-150 min-w-100 min-h-140'>
                 <div className='flex justify-center items-center p-2'>
                     <div className='text-4xl font-semibold'>Apple.Inc</div>
                 </div>
-                <div className='text-gray-500 text-sm p-2'>Upload Profile Picture</div>
+                <div className='text-gray-300 md:text-sm p-2 text-center md:text-left text-xs md:mt-2 mt-6'>Upload Profile Picture</div>
                 <UploadProfileImage/>
-                <div className='text-gray-500 text-sm p-2'>Add Description</div>
+                <div className='text-gray-300 md:text-sm p-2 text-center md:text-left text-xs md:mt-2 mt-6'>Add Description</div>
                 <textarea
                     name="" 
                     id="" 
-                    className='container bg-white rounded-lg min-h-70 p-4' 
+                    className='container bg-gray-300/30 rounded-lg min-h-70 p-4' 
                     placeholder='Write a Description About Your Company Here...'
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}>
                 </textarea>
                 <div className='flex justify-end items-center p-2'>
                     <div 
-                        className='bg-gray-800 rounded-md text-white text-sm font-semibold p-1 w-40 text-center hover:cursor-pointer hover:bg-black'
+                        className='bg-green-800 rounded-md text-white text-sm font-semibold p-2 w-40 text-center hover:cursor-pointer hover:bg-green-900'
                         onClick={handleEditDescription}>
                         Save Description
                     </div>

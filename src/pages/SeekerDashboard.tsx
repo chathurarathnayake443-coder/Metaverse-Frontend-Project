@@ -30,7 +30,7 @@ const SeekerDashboard = () => {
     <div className="flex min-h-screen flex-col">
       <NavBar/>
       <section className='flex-1'>
-        <aside className='hidden md:block bg-gray-200 fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
+        <aside className='hidden md:block border-r-2 border-r-gray-800/60 bg-black fixed top-18 left-0 w-56 h-[calc(100vh-4.5rem)] p-3 overflow-y-auto'>
           <div className='flex flex-col gap-1 mt-5'>
             <div className='text-md p-3 font-semibold'>Vacancies</div>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Posts</div>
@@ -44,7 +44,7 @@ const SeekerDashboard = () => {
         </aside>
         <div className="flex flex-1 flex-col md:ml-56 min-h-171">
           <main className="flex-1 p-6">
-            <div className="font-bold fixed z-10 rounded-3xl text-lg backdrop-blur-xs w-full p-4 transform -translate-y-6 -translate-x-5">Welcome Back, Chathura</div>
+            <div className="font-bold z-10 rounded-3xl text-lg backdrop-blur-xs w-full p-4 transform -translate-y-6 -translate-x-5">Welcome Back, Chathura</div>
             {loading && <div className='text-center text-success py-10'>Loading Notes...</div>}
 
             {!loading && vacancies.length === 0 &&(

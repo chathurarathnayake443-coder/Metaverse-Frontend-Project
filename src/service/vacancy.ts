@@ -22,3 +22,8 @@ export const getMyVacancies = async () => {
   const res = await api.get("/vacancy/vacancies/mine")
   return res.data       
 }
+
+export const getVacancyById = async (id: string) => {
+  const res = await api.get(`/vacancy/vacancies/${id}`)  
+  return res.data                              
+}

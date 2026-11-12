@@ -69,6 +69,15 @@ function AppRouter(){
                 }
                 />
 
+                <Route 
+                path="/job-vacancy/:id" 
+                element={
+                    <RequireAuth roles={["SEEKER"]}>
+                        <VacancyPage />
+                    </RequireAuth>
+                } 
+                />
+
                 {/* {Company Only} */}
                 <Route
                 path = "/company-dashboard"

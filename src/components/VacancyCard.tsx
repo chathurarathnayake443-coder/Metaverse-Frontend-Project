@@ -26,7 +26,7 @@ const VacancyCard = ({vacancy} : Props) => {
       </div>
       <div className='font-semibold shrink-0'>Description</div>
       <div className='flex-1 min-h-0 overflow-y-auto p-2 text-gray-400 text-sm'>{vacancy.description}</div>
-      <hr className='border-gray-300 shrink-0'/>
+      <hr className='border-gray-600/10 border-2 shrink-0'/>
     <div className='mt-3 flex flex-row justify-around items-center shrink-0'>
         <div className='flex flex-row gap-2 justify-around items-center'>
             <CircleFadingArrowUp className='w-4 h-4 font-bold'/>

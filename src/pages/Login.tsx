@@ -9,8 +9,8 @@ import { useNavigate } from "react-router"
 import { LoaderIcon } from "lucide-react"
 
 const inputClass =
-  "w-full rounded-xl border-2 border-black px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-black"
-const labelClass = "mb-2 font-outfit text-sm font-semibold md:text-base"
+  "w-full rounded-xl border-2 border-gray-900 px-6 py-4 text-sm md:text-base focus:ring-1 text-white focus:ring-white"
+const labelClass = "mb-2 font-outfit text-sm text-white font-semibold md:text-base"
 
 const Login = () => {
   const navigate = useNavigate()
@@ -67,15 +67,15 @@ const Login = () => {
       <NavBar />
 
       <div className="flex justify-center">
-        <img src="/src/assets/black-logo.png" alt="Logo" className=" w-32 md:w-40" />
+        <img src="/src/assets/metaverse-logo.png" alt="Logo" className=" w-32 md:w-40" />
       </div>
 
       <main className="flex flex-1 flex-col items-center justify-center px-4 py-6">
-        <h1 className="mb-6 text-center font-outfit text-xl font-semibold text-black md:text-2xl">
+        <h1 className="mb-6 text-center font-outfit text-xl font-semibold text-white md:text-2xl">
           Log In to Your Account
         </h1>
 
-        <form className="relative w-full max-w-lg space-y-4 rounded-3xl border-2 border-black p-6 sm:p-10">
+        <form className="relative w-full max-w-lg space-y-4 rounded-3xl border-2 border-white p-6 sm:p-10">
           <div className="flex flex-col">
             <label htmlFor="email" className={labelClass}>Email</label>
             <input 
@@ -102,14 +102,14 @@ const Login = () => {
                 type="button"
                 onClick={() => setShow((s) => !s)}
                 aria-label={show ? "Hide password" : "Show password"}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
               >
                 {show ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
           </div>
 
-          <button type="button" onClick={handleLogin} className="btn my-4 w-full rounded-full bg-black text-white hover:bg-gray-800">
+          <button type="button" onClick={handleLogin} className="btn my-4 w-full rounded-full bg-gray-800 text-white hover:bg-gray-900">
             {isLoggingIn ? (
                 <>
                   <LoaderIcon className="animate-spin size-5" />

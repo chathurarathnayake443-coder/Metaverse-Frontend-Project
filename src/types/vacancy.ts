@@ -9,3 +9,15 @@ export type Vacancy = {
   createdAt: string 
   vacancyStatus: string
 }
+
+export type VacancyDetail = {
+  _id: string
+  companyName: string
+  companyProfileImage: string | null
+  title: string
+  deadlineDate: string
+  description: string
+  taskPdfUrl?: string
+  createdAt: string
+  currentSubmissionCount: number
+}

@@ -102,7 +102,7 @@ const CompanyDashboard = () => {
                         </span>
                         <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Vacancies">
                             <BriefcaseBusiness className='text-red-500'/>
-                            <span className='text-black'>{company?.noOfVacancies}</span>
+                            <span className='text-black'>{company?.noOfVacanciesPosted}</span>
                         </span>
                     </div>
                     <Link to={"/create-officer"} className='bg-green-800 p-2 rounded-lg flex flex-row justify-around items-center hover:cursor-pointer hover:bg-green-900'>
