@@ -11,6 +11,7 @@ import useAuth from "../hooks/useAuth";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 import CreateVacancyPage from '../pages/CreateVacancyPage'
 import CompanyDetailsEditPage from "../pages/CompanyDetailsEditPage";
+import SubmissionsPage from "../pages/SubmissionsPage";
 
 type RequireAuthTypes = {
     children : ReactNode,
@@ -102,6 +103,15 @@ function AppRouter(){
                 element={
                     <RequireAuth roles={["COMPANY"]}>
                         <CompanyDetailsEditPage/>
+                    </RequireAuth>
+                }
+                />
+
+                <Route
+                path = "/company/vacancy/:id"
+                element={
+                    <RequireAuth roles={["COMPANY"]}>
+                        <SubmissionsPage/>
                     </RequireAuth>
                 }
                 />
