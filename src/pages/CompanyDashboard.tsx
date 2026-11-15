@@ -95,7 +95,7 @@ const CompanyDashboard = () => {
                     </div>
                 </div>
                 <div className='absolute flex flex-col gap-3 top-20 right-5 xl:top-25 xl:right-8 sm:top-23 sm:right-15 lg:top-24 md:top-22 p-2'>
-                    <div className='flex flex-row gap-5 bg-gray-100 p-2 rounded-2xl'>
+                    <div className='flex flex-row gap-5 bg-gray-300 p-2 rounded-2xl'>
                         <span className='flex flex-row gap-1 tooltip hover:cursor-pointer' data-tip="Officers">
                         <UserRoundCheck className='text-green-500'/>
                         <span className='text-black'>{company?.noOfVerifiedOfficers}</span>

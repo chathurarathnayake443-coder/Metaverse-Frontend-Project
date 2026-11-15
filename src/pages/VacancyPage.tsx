@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import AppleLogo from "../assets/apple.png"
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from 'react-icons/fa'
 import { Timer, CircleFadingArrowUp, FileIcon, LoaderIcon, BadgeCheck } from 'lucide-react'
@@ -9,6 +8,7 @@ import toast from 'react-hot-toast'
 import { useParams } from 'react-router'
 import type { VacancyDetail } from '../types/vacancy'
 import { getVacancyById } from '../service/vacancy'
+import { applyPost } from '../service/submission'
 
 const VacancyPage = () => {
 
@@ -22,8 +22,18 @@ const VacancyPage = () => {
     const[sampleURL1, setSampleURL1] = useState("")
     const[sampleURL2, setSampleURL2] = useState("")
     const[sampleURL3, setSampleURL3] = useState("")
-    const [uploading, setUploading] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
+
+      const isValidUrl = (url: string): boolean => {
+    const value = url.trim()
+
+    return (
+      (value.startsWith("http://") || value.startsWith("https://")) &&
+      value.includes(".") &&
+      !value.includes(" ") &&
+      value.length > value.indexOf("://") + 3 + 3  
+    )
+}
 
     useEffect(() => {
     if (!id) return
@@ -90,8 +100,26 @@ const VacancyPage = () => {
   const postedTime = new Date(vacancy.createdAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
   const deadline = new Date(vacancy.deadlineDate).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })
 
-  const handleSubmission = () => {
+  const handleSubmission = async () => {
+
+    if (!id) return
     
+    if(!githubURL || !linkedInURL || !file || !sampleURL1 || !sampleURL2 || !sampleURL3){
+        return toast.error("Please fill All the Fields to Submit !")
+    }
+
+    if(!isValidUrl(githubURL) || !isValidUrl(linkedInURL) || !isValidUrl(sampleURL1) || !isValidUrl(sampleURL2) || !isValidUrl(sampleURL3)){
+        return toast.error("Please Enter a Valid URL !")
+    }
+
+    try{
+        await applyPost(id, githubURL, linkedInURL, file, sampleURL1, sampleURL2, sampleURL3)
+        toast.success("Successfully Submitted !")
+    }
+    catch(error){
+        console.error("Error in Handle Submission", error)
+        toast.error("Oops..Submission Failed !")
+    }
   }
 
   return (
@@ -211,13 +239,16 @@ const VacancyPage = () => {
                             type="button"
                             onClick={handleDownload}
                             disabled={downloading}
-                            className="btn text-gray-400 rounded-md bg-blue-100"
+                            className="p-2 text-white text-sm hover:cursor-pointer rounded-md bg-blue-600 hover:bg-blue-700"
                         >
                             {downloading ? <LoaderIcon className="animate-spin size-4" /> : null}
                             {downloading ? "Downloading..." : "Download Task"}
                         </button>
                         )}
-                    <button className='bg-green-800 rounded-md text-sm min-w-30 text-white p-2 hover:bg-green-900 hover:cursor-pointer'>Submit</button>
+                    <button 
+                        className='bg-green-800 rounded-md text-sm min-w-30 text-white p-2 hover:bg-green-900 hover:cursor-pointer'
+                        onClick={handleSubmission}
+                        >Submit</button>
                 </div>
             </section>
             </div>

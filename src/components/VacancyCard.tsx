@@ -1,5 +1,3 @@
-import React from 'react'
-import apple from '../assets/apple.png'
 import { CircleFadingArrowUp, Timer, Calendar } from 'lucide-react'
 import {Link} from "react-router"
 import type { Vacancy } from "../types/vacancy.ts"
