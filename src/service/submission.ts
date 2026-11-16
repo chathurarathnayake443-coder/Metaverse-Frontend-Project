@@ -14,3 +14,8 @@ export const applyPost = async (vacancyId:string, githubURL:string, linkedInURL:
     const res = await api.post(`/submission/apply-post/${vacancyId}`, formData)
     return res.data
 }
+
+export const fetchSubmissions = async (vacancyId: string) => {
+  const res = await api.get(`/submission/vacancy/${vacancyId}`)
+  return res.data   // { message, data: { vacancy, submissions } }
+}
