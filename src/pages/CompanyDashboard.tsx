@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import VerfiedTick from "../assets/verified.png"
 import { UserRoundCheck, BriefcaseBusiness, Plus, BadgeCheck, File, FileXCorner, UserRound, MessageCircleQuestionMark, Settings } from 'lucide-react';
 import VacancyCard from '../components/VacancyCard'
 import { Link } from "react-router"

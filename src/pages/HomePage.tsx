@@ -5,7 +5,6 @@ import { FaGithub } from "react-icons/fa"
 
 const HomePage = () => {
 
-  const githubIcon = <FaGithub />
   return (
     <div className="relative">
       <NavBar/>
