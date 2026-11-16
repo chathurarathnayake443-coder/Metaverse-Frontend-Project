@@ -7,6 +7,7 @@ import {getMyDetails, login} from "../service/auth.ts"
 import { AuthContext } from '../context/AuthContext'
 import { useNavigate } from "react-router"
 import { LoaderIcon } from "lucide-react"
+import Metaverse from "/src/assets/metaverse-logo.png"
 
 const inputClass =
   "w-full rounded-xl border-2 border-gray-900 px-6 py-4 text-sm md:text-base focus:ring-1 text-white focus:ring-white"
@@ -67,7 +68,7 @@ const Login = () => {
       <NavBar />
 
       <div className="flex justify-center">
-        <img src="/src/assets/metaverse-logo.png" alt="Logo" className=" w-32 md:w-40" />
+        <img src={Metaverse} alt="Logo" className=" w-32 md:w-40" />
       </div>
 
       <main className="flex flex-1 flex-col items-center justify-center px-4 py-6">

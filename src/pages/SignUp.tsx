@@ -7,6 +7,7 @@ import { useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import { TECH_COMPANIES } from "../data/companies.ts"
 import { register } from "../service/auth.ts"
+import Metaverse from "/src/assets/metaverse-logo.png"
 
 const inputClass =
   "w-full rounded-xl border-2 border-gray-900 px-6 py-4 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-white"
@@ -92,7 +93,7 @@ const Register = () => {
       <NavBar />
 
       <div className="flex justify-center">
-        <img src="/src/assets/metaverse-logo.png" alt="Logo" className=" w-32 md:w-40" />
+        <img src={Metaverse} alt="Logo" className=" w-32 md:w-40" />
       </div>
 
       <main className="flex flex-col items-center px-4 py-5 sm:px-6">
