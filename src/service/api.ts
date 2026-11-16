@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios"
 import { refreshTokenCall } from "./auth"
 
 const api = axios.create({
-  baseURL: "https://metaverse-backend-project.vercel.app"
+  baseURL: `${import.meta.env.VITE_API_URL}`
 })
 
 const PUBLIC_ENDPOINTS = ["/auth/login", "/auth/register", "/auth/refresh"]
