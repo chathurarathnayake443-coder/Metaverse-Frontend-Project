@@ -18,8 +18,8 @@ const LogoSlider = () => {
   const items = [...half, ...half] 
 
   return (
-    <section className="w-full bg-black py-8">
-      <p className="mb-6 text-center text-sm text-black font-semibold">Trusted by teams at</p>
+    <section className="w-full bg-green-700/20 py-8 border-t-2 border-t-blue-600/20">
+      <p className="mb-6 text-center text-sm text-white font-semibold">Trusted by teams at</p>
 
       <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">

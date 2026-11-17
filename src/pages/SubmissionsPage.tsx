@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, TrashIcon, FolderClosed, LoaderIcon } from 'lucide-react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import { Link, useParams } from 'react-router'
+import { Link, useParams, useNavigate } from 'react-router'
 import type { VacancyDetail } from '../types/vacancy'
 import type { Submission } from '../types/submission'
 import { fetchSubmissions } from '../service/submission'
 import toast from 'react-hot-toast'
+import { deleteVacancy } from '../service/vacancy'
 
 const formatTime = (iso: string) =>
   new Date(iso).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
@@ -22,6 +23,22 @@ const SubmissionsPage = () => {
   const [vacancy, setVacancy] = useState<VacancyDetail | null>(null)
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
+
+  const handleDelete = async () => {
+  
+    if (!id) return
+
+    try{
+        await deleteVacancy(id)
+        navigate("/company-dashboard")
+        toast.success("Vacancy Deleted Successfully !")
+    }
+    catch(error){
+        console.error(error)
+        toast.error("Unable to Delete Post !")
+    }
+  }
 
   useEffect(() => {
     if (!id) return
@@ -77,7 +94,7 @@ const SubmissionsPage = () => {
                 <span className='text-gray-400 text-sm'>
                   at {formatTime(vacancy.createdAt)} | {formatShortDate(vacancy.createdAt)}
                 </span>
-                <TrashIcon size={20} className='text-red-600 hover:text-red-800 hover:cursor-pointer' />
+                <TrashIcon size={20} onClick={handleDelete} className='text-red-600 hover:text-red-800 hover:cursor-pointer' />
               </div>
             </div>
 

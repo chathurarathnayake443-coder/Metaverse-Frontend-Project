@@ -14,19 +14,18 @@ const HomePage = () => {
         <div
   aria-hidden="true"
   className="pointer-events-none absolute inset-0 z-0
-    bg-[linear-gradient(to_right,rgba(124,58,237,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(124,58,237,0.18)_1px,transparent_1px)]
-    bg-[size:100px_100px] 
-    [mask-image:linear-gradient(to_bottom,white_30%,transparent_100%)]"
+    bg-[linear-gradient(to_right,rgba(124,58,237,0.3)_2px,transparent_2px),linear-gradient(to_bottom,rgba(124,58,237,0.3)_2px,transparent_2px)]
+    bg-[size:150px_150px]"
 />
 
- <div
+ {/* <div
     aria-hidden="true"
     className="pointer-events-none absolute inset-0 z-0 bg-linear-to-t from-violet-500/40 via-violet-300/15 to-transparent"
-  />
+  /> */}
 
         <div className="relative z-10">
-            <h1 className='text-5xl md:text-7xl lg:text-8xl font-outfit font-bold mt-20 ml-10 leading-tight drop-shadow-2xl/30'>Move with the Latest <br /><span className="text-violet-600 drop-shadow-2xl/10">Tech Stack⚡</span><span className="inline-flex items-center gap-1 whitespace-nowrap text-3xl font-outfit md:text-md text-gray-400 ml-3">
-        for a Super Fast Hiring with <FaGithub className="text-black text-9xl absolute top-65 right-155 hidden lg:block"/>
+            <h1 className='text-5xl md:text-7xl lg:text-8xl font-outfit font-bold mt-20 ml-10 leading-tight drop-shadow-2xl/30'>Move with the Latest <br /><span className="text-violet-600 drop-shadow-2xl/10">Tech Stack⚡</span><span className="items-center gap-1 whitespace-nowrap inline-flex text-3xl font-outfit md:text-md text-gray-400 ml-3">
+        for a Super Fast Hiring with <FaGithub className="text-white text-9xl absolute top-65 right-155 hidden lg:block"/>
       </span></h1>
       <p className='text-white ml-10 mt-10 font-mono translate-y-8' >MetaVerse is a Hiring Platform which associated with GitHub.<br/> A Platform for Super Faster Employee Hiring for World Renowned  <br/>Tech Companies, and a Universe to chat with the Industry Experts...</p>
       <img src={GithubImage} alt="github-image" className="absolute w-100 h-100 -top-10 right-10 rounded-4xl -rotate-10 z-10 hover:-translate-x-4 hover:-translate-y-4 transition-transform duration-300 ease-out drop-shadow-2xl hidden lg:block"/>

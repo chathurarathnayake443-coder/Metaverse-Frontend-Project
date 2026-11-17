@@ -27,3 +27,8 @@ export const getVacancyById = async (id: string) => {
   const res = await api.get(`/vacancy/vacancies/${id}`)  
   return res.data                              
 }
+
+export const deleteVacancy = async (id:string) => {
+    const res = await api.delete(`/vacancy/delete-vacancy/${id}`)
+    return res.data
+}
