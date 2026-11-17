@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return (
   <>
-    <header className="bg-gray-950/10 backdrop-blur-md w-full h-18 text-white flex flex-row items-center sticky top-0 z-50">
+    <header className="bg-gray-800/30 backdrop-blur-md w-full h-18 text-white flex flex-row items-center sticky top-0 z-50">
         <img src={Logo} alt="Logo" className="h-full" />
         <div className="flex-row gap-10 m-auto font-outfit items-center hidden lg:flex">
             <Link to={"/"}><span className='text-md text-white'>Home</span></Link>

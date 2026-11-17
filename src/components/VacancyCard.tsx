@@ -16,7 +16,7 @@ const VacancyCard = ({vacancy} : Props) => {
     : `/job-vacancy/${vacancy._id}` 
 
   return (
-        <Link to={path} className='flex flex-col max-w-5xl h-96 rounded-3xl border-b-2 overflow-auto border-b-gray-500 bg-gray-400/20 p-5 hover:transform hover:-translate-y-2 transition duration-300 hover:cursor-pointer'>
+        <Link to={path} className='flex flex-col max-w-5xl h-96 rounded-3xl border-b-2 overflow-auto border-b-gray-500 bg-green-400/15 p-5 hover:transform hover:-translate-y-2 transition duration-300 hover:cursor-pointer'>
         <div className='flex flex-row gap-2 justify-between items-center'>
             <div className='flex flex-row justify-around items-center w-10 gap-4'>
             <img src={vacancy.company.profileImage} className='w-8 h-8 rounded-4xl'/><span className='font-semibold text-sm'>{vacancy.company.fullName}</span>

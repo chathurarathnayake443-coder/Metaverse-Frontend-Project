@@ -12,6 +12,7 @@ import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 import CreateVacancyPage from '../pages/CreateVacancyPage'
 import CompanyDetailsEditPage from "../pages/CompanyDetailsEditPage";
 import SubmissionsPage from "../pages/SubmissionsPage";
+import AiAnalyzePage from "../pages/AiAnalyzePage";
 
 type RequireAuthTypes = {
     children : ReactNode,
@@ -75,6 +76,15 @@ function AppRouter(){
                 element={
                     <RequireAuth roles={["SEEKER"]}>
                         <VacancyPage />
+                    </RequireAuth>
+                } 
+                />
+
+                <Route 
+                path="/analyze-cv" 
+                element={
+                    <RequireAuth roles={["SEEKER"]}>
+                        <AiAnalyzePage />
                     </RequireAuth>
                 } 
                 />

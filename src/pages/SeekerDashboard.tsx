@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import VacancyCard from '../components/VacancyCard'
 import { getAllVacancies } from '../service/vacancy.ts'
 import type { Vacancy } from "../types/vacancy.ts"
+import { Link } from 'react-router'
 
 
 const SeekerDashboard = () => {
@@ -39,7 +40,8 @@ const SeekerDashboard = () => {
             <div className='text-md p-3 font-semibold'>Discussions</div>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>All Posts</div>
             <div className='text-sm p-2 transition duration-200 ease-in-out hover:bg-gray-300 hover:border-l-2 hover:border-l-black hover:translate-x-2 hover:font-bold hover:cursor-pointer'>Your Questions</div>
-            <div className='text-md p-3 font-semibold'>Filters</div>
+            <Link to={"/analyze-cv"} className='text-md p-2 font-semibold mt-50 text-amber-400 border-2 rounded-lg border-amber-400 border-dotted text-center hover:cursor-pointer hover:text-white hover:bg-amber-900/40'>Analyze Your CV</Link>
+            <div className='text-white text-xs mt-5 text-center bg-violet-900/40 p-3 rounded-lg border-2 border-violet-600'>Increase Your Hiring Chances by Analyzing Your CV</div>
           </div>
         </aside>
         <div className="flex flex-1 flex-col md:ml-56 min-h-171">
