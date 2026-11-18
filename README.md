@@ -3,7 +3,7 @@
 Web client for **MetaVerse**, a tech hiring platform where companies post task-based vacancies and manage their profile and officers.
 
 **Live site:** metaverse-frontend-project.vercel.app
-**Backend repo:** https://github.com/chathurarathnayake443-coder/Metaverse-Backend-Project.git
+**Backend repo:** (https://github.com/chathurarathnayake443-coder/Metaverse-Backend-Project.git)
 
 ## Features
 
@@ -28,7 +28,7 @@ Web client for **MetaVerse**, a tech hiring platform where companies post task-b
 ### Prerequisites
 
 - Node.js 18 or newer
-- The [MetaVerse backend] https://github.com/chathurarathnayake443-coder/Metaverse-Backend-Project.git running locally, or the deployed API
+- The [MetaVerse backend] (https://github.com/chathurarathnayake443-coder/Metaverse-Backend-Project.git) running locally, or the deployed API
 
 ### Installation
 
@@ -43,7 +43,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-VITE_API_URL=http://localhost:3000/api/v1
+VITE_API_URL=(http://localhost:3000/api/v1)
 ```
 
 For production, set `VITE_API_URL` to your deployed API:
@@ -108,6 +108,17 @@ A `vercel.json` in the project root keeps React Router routes working on page re
 ```
 
 The backend must allow this site's URL in its CORS configuration.
+
+## Screenshots
+
+### Login
+![Login page](docs/screenshots/login.png)
+
+### Company Dashboard
+![Company dashboard](docs/screenshots/company-dashboard.png)
+
+### Edit Company Details
+![Edit company details](docs/screenshots/edit-company.png)
 
 ## Author
 
